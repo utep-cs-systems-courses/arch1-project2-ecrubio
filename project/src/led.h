@@ -9,5 +9,7 @@ extern unsigned char red_on, green_on;
 
 void led_init();
 void led_update();
+void green_on_f();
+void lights_off();
 
 #endif // included

@@ -21,6 +21,20 @@ void led_update()
 
     P2OUT &= (0xff^LEDS) | ledFlags; // clear bit for off leds
     P2OUT |= ledFlags;     // set bit for on leds
-    switch_state = 0;
+    // switch_state = 0;
   }
+}
+
+void green_on_f()
+{
+  green_on = 1;
+  red_on = 0;
+  led_update();
+}
+
+void lights_off()
+{
+  green_on = 0;
+  red_on = 0;
+  led_update();
 }

@@ -2,8 +2,7 @@
 #define stateMachine_included
 
 void state_advance();
-char toggle_red();
-char toggle_green();
+int red_green_pattern1();
 
 extern int switch_state;
 
