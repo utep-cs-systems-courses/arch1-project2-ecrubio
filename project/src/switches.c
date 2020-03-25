@@ -35,7 +35,8 @@ switch_interrupt_handler()
   switch2_state = (p2val & SW2) ? 0 : 1; /* 0 when SW2 is up */
   switch3_state = (p2val & SW3) ? 0 : 1; /* 0 when SW3 is up */
   switch4_state = (p2val & SW4) ? 0 : 1; /* 0 when SW4 is up */
-  
+
+  //this lets the stateMachine know what button is beign played
   if(switch1_state){
     switch_state = 1;
   }

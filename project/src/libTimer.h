@@ -1,3 +1,5 @@
+//File used to intall timer
+
 #ifndef libTimer_included
 #define libTimer_included
 

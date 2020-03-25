@@ -24,6 +24,7 @@ void buzzer_set_period(short cycles) /* buzzer clock = 2MHz.  (period of 1k resu
   CCR1 = cycles >> 1;/* one half cycle */
 }
 
+//Stops the buzzer if its playing a note
 void buzzer_off()
 {
   CCR0 = 0;
