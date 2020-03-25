@@ -1,25 +1,26 @@
 #include <msp430.h>
 #include "led.h"
-#include "switches.h"
+#include "stateMachines.h"
 
+unsigned char red_on = 0, green_on = 0;
+unsigned char led_changed = 0;
 
-//temporary needs fix
+static char redVal[] = {0, LED_RED}, greenVal[] = {0, LED_GREEN};
+
 void led_init()
 {
   P2DIR |= LEDS;// bits attached to leds are output
-  switch_state_changed = 1;
+  switch_state = 1;
   led_update();
 }
 
-void led_update(){
-  if (switch_state_changed) {
-    char ledFlags = 0; /* by default, no LEDs on */
+void led_update()
+{
+  if (switch_state) {
+    char ledFlags = redVal[red_on] | greenVal[green_on];
 
-    ledFlags |= switch_state_down ? LED_GREEN : 0;
-    ledFlags |= switch_state_down ? 0 : LED_RED;
-
-    P2OUT &= (0xff - LEDS) | ledFlags; // clear bits for off leds
-    P2OUT |= ledFlags;         // set bits for on leds
+    P2OUT &= (0xff^LEDS) | ledFlags; // clear bit for off leds
+    P2OUT |= ledFlags;     // set bit for on leds
+    switch_state = 0;
   }
-  switch_state_changed = 0;
 }
