@@ -5,8 +5,8 @@
 #include "buzzer.h"
 #include "stateMachines.h"
 
-int main(void) {
-  
+int main(void)
+{
   configureClocks();/* setup master oscillator, CPU & peripheral clocks(timerLib executed) */
   switch_init();
   led_init();

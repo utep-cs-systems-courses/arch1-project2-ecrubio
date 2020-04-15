@@ -18,7 +18,6 @@ void led_update()
 {
   if (led_changed) {
     char ledFlags = redVal[red_on] | greenVal[green_on];
-
     P2OUT &= (0xff^LEDS) | ledFlags; // clear bit for off leds
     P2OUT |= ledFlags;     // set bit for on leds
     led_changed = 0;
